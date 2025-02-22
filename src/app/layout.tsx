@@ -1,5 +1,24 @@
 import type { Metadata } from 'next'
+import { Montserrat, Oxanium } from 'next/font/google'
 import './globals.css'
+
+export const oxanium = Oxanium({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['500', '600'],
+  style: 'normal',
+  preload: true,
+  variable: '--font-oxanium',
+})
+
+export const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '600'],
+  style: 'normal',
+  preload: true,
+  variable: '--font-oxanium',
+})
 
 export const metadata: Metadata = {
   title: 'Connect - Web',
@@ -13,7 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body
+        className={`flex flex-col min-h-dvh ${oxanium.variable} ${montserrat.variable} antialiased`}
+      >
+        <div className="flex-1">{children}</div>
+      </body>
     </html>
   )
 }
