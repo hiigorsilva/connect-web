@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`flex flex-col min-h-dvh ${oxanium.variable} ${montserrat.variable} antialiased`}
+        className={`flex flex-col min-h-dvh text-gray-100 bg-gray-900 ${oxanium.variable} ${montserrat.variable} antialiased`}
       >
         <div className="flex-1">{children}</div>
       </body>
