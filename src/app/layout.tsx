@@ -22,7 +22,7 @@ export const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'Connect - Web',
-  description: 'Seu app de gerenciamento de indicações de usuários.',
+  description: 'Seu gerenciador de indicações de usuários.',
 }
 
 export default function RootLayout({
