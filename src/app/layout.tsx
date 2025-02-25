@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat, Oxanium } from 'next/font/google'
+import { Outfit, Oxanium } from 'next/font/google'
 import './globals.css'
 
 export const oxanium = Oxanium({
@@ -11,13 +11,13 @@ export const oxanium = Oxanium({
   variable: '--font-oxanium',
 })
 
-export const montserrat = Montserrat({
+export const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '600'],
   style: 'normal',
   preload: true,
-  variable: '--font-oxanium',
+  variable: '--font-outfit',
 })
 
 export const metadata: Metadata = {
@@ -31,11 +31,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`flex flex-col min-h-dvh text-gray-100 bg-gray-900 ${oxanium.variable} ${montserrat.variable} antialiased`}
-      >
-        <div className="flex-1">{children}</div>
+    <html lang="pt-BR" className={`${oxanium.variable} ${outfit.variable}`}>
+      <body className="min-h-dvh w-full flex flex-col text-gray-100 antialiased bg-gray-900 bg-[url('/images/bg.webp')] bg-cover bg-no-repeat bg-top md:bg-right-top">
+        <main className="flex flex-col flex-1">{children}</main>
       </body>
     </html>
   )
