@@ -1,4 +1,6 @@
+import logo from '@/assets/images/logo.svg'
 import { ContainerApp } from '@/components/container-app'
+import { Subtitle } from '@/components/subtitle'
 import { Title } from '@/components/title'
 import { Button } from '@/components/ui/button'
 import { InputField, InputIcon, InputRoot } from '@/components/ui/input'
@@ -12,7 +14,6 @@ import {
   UserIcon,
 } from 'lucide-react'
 import Image from 'next/image'
-import logo from '../assets/images/logo.svg'
 
 const Home = async () => {
   return (
@@ -29,7 +30,7 @@ const Home = async () => {
         {/* HEADER CARD */}
         <div className="w-full flex flex-col gap-6 p-6 rounded-2xl bg-gray-700">
           <div className="flex justify-between items-center gap-6">
-            <Title type="h2">Sobre o evento</Title>
+            <Subtitle>Sobre o evento</Subtitle>
 
             <span className="font-semibold flex items-center gap-1 text-xs text-purple uppercase leading-none">
               <RadioIcon className="size-4 shrink-0" />
@@ -64,7 +65,7 @@ const Home = async () => {
 
         {/* FORM CARD */}
         <form className="max-w-none md:max-w-[400px] w-full p-6 rounded-2xl bg-gray-700 space-y-6">
-          <Title type="h2">Inscrição</Title>
+          <Subtitle>Inscrição</Subtitle>
 
           <div className="flex flex-col gap-3">
             {/* NAME */}
