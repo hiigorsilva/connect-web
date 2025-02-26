@@ -44,7 +44,7 @@ export const InputField = ({ className, ...props }: InputFieldProps) => {
   return (
     <input
       className={cn(
-        'flex-1 h-full text-gray-100 outline-0 placeholder:text-gray-400',
+        'flex-1 w-full h-full text-gray-100 outline-0 placeholder:text-gray-400',
         className
       )}
       {...props}
