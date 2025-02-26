@@ -2,18 +2,11 @@ import logo from '@/assets/images/logo.svg'
 import { ContainerApp } from '@/components/container-app'
 import { Subtitle } from '@/components/subtitle'
 import { Title } from '@/components/title'
-import { Button } from '@/components/ui/button'
-import { InputField, InputIcon, InputRoot } from '@/components/ui/input'
-import {
-  ArrowRightIcon,
-  CalendarIcon,
-  ClockIcon,
-  MailIcon,
-  RadioIcon,
-  TvMinimalIcon,
-  UserIcon,
-} from 'lucide-react'
+import {} from '@/components/ui/input'
+import { RadioIcon } from 'lucide-react'
 import Image from 'next/image'
+import { DateEvent } from './components/date-event'
+import { SubscriptionForm } from './components/subscription-form'
 
 const Home = async () => {
   return (
@@ -46,50 +39,12 @@ const Home = async () => {
               software, arquitetura de sistemas e tecnologias emergentes, com
               palestras, workshops e hackathons.
             </p>
-            <ul className="flex flex-wrap items-center gap-4">
-              <li className="flex items-center gap-1 text-sm text-gray-300">
-                <CalendarIcon className="text-purple size-4 shrink-0" />
-                15 a 17 de março
-              </li>
-              <li className="flex items-center gap-1 text-sm text-gray-300">
-                <ClockIcon className="text-purple size-4 shrink-0" />
-                18h às 21h
-              </li>
-              <li className="flex items-center gap-1 text-sm text-gray-300">
-                <TvMinimalIcon className="text-purple size-4 shrink-0" />
-                Online e Gratuito
-              </li>
-            </ul>
+
+            <DateEvent />
           </div>
         </div>
 
-        {/* FORM CARD */}
-        <form className="max-w-none md:max-w-[400px] w-full p-6 rounded-2xl bg-gray-700 space-y-6">
-          <Subtitle>Inscrição</Subtitle>
-
-          <div className="flex flex-col gap-3">
-            {/* NAME */}
-            <InputRoot>
-              <InputIcon>
-                <UserIcon className="size-4 shrink-0" />
-              </InputIcon>
-              <InputField type="text" placeholder="Nome completo" />
-            </InputRoot>
-
-            {/* EMAIL */}
-            <InputRoot>
-              <InputIcon>
-                <MailIcon className="size-4 shrink-0" />
-              </InputIcon>
-              <InputField type="email" placeholder="E-mail" />
-            </InputRoot>
-          </div>
-
-          <Button>
-            Confirmar
-            <ArrowRightIcon className="size-4 shrink-0" />
-          </Button>
-        </form>
+        <SubscriptionForm />
       </div>
     </ContainerApp>
   )
