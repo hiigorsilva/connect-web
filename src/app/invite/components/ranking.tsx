@@ -6,11 +6,13 @@ import Image from 'next/image'
 
 export const Ranking = () => {
   return (
-    <ul className="w-full md:w-[40%] space-y-5">
+    <ul className="w-full md:max-w-[440px] space-y-5">
       <Subtitle>Ranking</Subtitle>
       <li className="relative flex items-center gap-1 bg-gray-700 border border-gray-600 rounded-xl">
         <div className="p-6 space-y-1">
-          <h3 className="text-gray-300">1° | André Souza</h3>
+          <h3 className="text-gray-300">
+            <span className="font-semibold">1°</span> | André Souza
+          </h3>
           <span className="font-heading text-2xl text-gray-200">1.128</span>
         </div>
         <Image
@@ -24,7 +26,9 @@ export const Ranking = () => {
 
       <li className="relative flex items-center gap-1 bg-gray-700 border border-gray-600 rounded-xl">
         <div className="p-6 space-y-1">
-          <h3 className="text-gray-300">1° | André Souza</h3>
+          <h3 className="text-gray-300">
+            <span className="font-semibold">2°</span> | John Doe
+          </h3>
           <span className="font-heading text-2xl text-gray-200">1.128</span>
         </div>
         <Image
@@ -38,7 +42,9 @@ export const Ranking = () => {
 
       <li className="relative flex items-center gap-1 bg-gray-700 border border-gray-600 rounded-xl">
         <div className="p-6 space-y-1">
-          <h3 className="text-gray-300">1° | André Souza</h3>
+          <h3 className="text-gray-300">
+            <span className="font-semibold">3°</span> | Higor Silva
+          </h3>
           <span className="font-heading text-2xl text-gray-200">1.128</span>
         </div>
         <Image

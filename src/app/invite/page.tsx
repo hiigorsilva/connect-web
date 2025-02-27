@@ -13,7 +13,7 @@ const InvitePage = async () => {
       <Image src={logo} alt="Logo" width={108} height={30} />
       <div className="flex flex-col md:flex-row md:justify-between items-stretch gap-8">
         {/* LEFTSIDE */}
-        <div className="w-full md:w-[55%] flex flex-col justify-between gap-6">
+        <div className="w-full md:max-w-[550px] flex flex-col justify-between gap-6">
           {/* TITLE INVITE */}
           <div className="space-y-2">
             <Title className="text-4xl">Inscrição confirmada!</Title>
