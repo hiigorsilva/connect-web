@@ -2,12 +2,15 @@ import logo from '@/assets/images/logo.svg'
 import { ContainerApp } from '@/components/container-app'
 import { Subtitle } from '@/components/subtitle'
 import { Title } from '@/components/title'
+import { env } from '@/env'
 import Image from 'next/image'
 import { CardDetails } from './components/card-details'
 import { InviteLinkCopy } from './components/invite-link-copy'
 import { Ranking } from './components/ranking'
 
 const InvitePage = async () => {
+  const inviteLink = `${env.WEB_URL}/invite/1234567890`
+
   return (
     <ContainerApp className="flex-1 px-5 py-6 md:py-16 space-y-8">
       <Image src={logo} alt="Logo" width={108} height={30} />
@@ -33,7 +36,7 @@ const InvitePage = async () => {
               </p>
             </div>
 
-            <InviteLinkCopy />
+            <InviteLinkCopy inviteLink={inviteLink} />
 
             <CardDetails />
           </div>
