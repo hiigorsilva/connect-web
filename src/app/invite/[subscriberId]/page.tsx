@@ -3,13 +3,14 @@ import { ContainerApp } from '@/components/container-app'
 import { Subtitle } from '@/components/subtitle'
 import { Title } from '@/components/title'
 import { env } from '@/env'
+import type { SubscribeToEvent201 } from '@/http/api'
 import Image from 'next/image'
 import { CardDetails } from './components/card-details'
 import { InviteLinkCopy } from './components/invite-link-copy'
 import { Ranking } from './components/ranking'
 
 type InvitePageProps = {
-  params: Promise<{ subscriberId: string }>
+  params: Promise<SubscribeToEvent201>
 }
 
 const InvitePage = async ({ params }: InvitePageProps) => {
@@ -44,7 +45,7 @@ const InvitePage = async ({ params }: InvitePageProps) => {
 
             <InviteLinkCopy inviteLink={inviteLink} />
 
-            <CardDetails />
+            <CardDetails subscriberId={subscriberId} />
           </div>
         </div>
 

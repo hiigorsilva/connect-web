@@ -3,18 +3,21 @@
 import { Subtitle } from '@/components/subtitle'
 import { Button } from '@/components/ui/button'
 import { InputField, InputIcon, InputRoot } from '@/components/ui/input'
+import { subscribeToEvent } from '@/http/api'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRightIcon, Loader2Icon, MailIcon, UserIcon } from 'lucide-react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { createSubscription } from '../actions/create-subscription'
 import { type SubscriptionFormType, subscriptionFormSchema } from '../schemas'
 
 export const SubscriptionForm = () => {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors, isSubmitting },
   } = useForm<SubscriptionFormType>({
     resolver: zodResolver(subscriptionFormSchema),
@@ -24,16 +27,19 @@ export const SubscriptionForm = () => {
     },
   })
 
-  const onFormSubmit = async (data: SubscriptionFormType) => {
+  const onFormSubmit = async ({ name, email }: SubscriptionFormType) => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      await createSubscription(data)
-      toast.success('Inscrição realizada com sucesso!')
+      const referrer = searchParams.get('referrer')
+      const { subscriberId } = await subscribeToEvent({
+        name,
+        email,
+        referrer,
+      })
+
+      router.push(`invite/${subscriberId}`)
     } catch (err) {
       console.error('ERROR_CREATE_SUBSCRIPTION', err)
       toast.error('Ocorreu um erro ao confirmar a inscrição')
-    } finally {
-      reset()
     }
   }
 
