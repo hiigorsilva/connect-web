@@ -8,8 +8,14 @@ import { CardDetails } from './components/card-details'
 import { InviteLinkCopy } from './components/invite-link-copy'
 import { Ranking } from './components/ranking'
 
-const InvitePage = async () => {
-  const inviteLink = `${env.WEB_URL}/invite/1234567890`
+type InvitePageProps = {
+  params: Promise<{ subscriberId: string }>
+}
+
+const InvitePage = async ({ params }: InvitePageProps) => {
+  const { subscriberId } = await params
+
+  const inviteLink = `${env.API_URL}/invites/${subscriberId}`
 
   return (
     <ContainerApp className="flex-1 px-5 py-6 md:py-16 space-y-8">
